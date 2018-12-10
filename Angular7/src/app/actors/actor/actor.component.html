@@ -1,0 +1,37 @@
+<form #form="ngForm" (submit)="onSubmit(form)" autocomplete="false">
+  <input type="hidden" name="Id" #Id="ngModel" [(ngModel)]="service.formData.Id">
+  <div class="form-group">
+    <label>Name</label>
+    <input name="Name" #Name="ngModel" [(ngModel)]="service.formData.Name" class="form-control" required>
+    <div class="validation-error" *ngIf="Name.invalid && Name.touched">This field is required.</div>
+  </div>
+  <div class="form-group">
+    <label>Age</label>
+    <input name="Age" #Age="ngModel" [(ngModel)]="service.formData.Age" class="form-control" required>
+    <div class="validation-error" *ngIf="Age.invalid && Age.touched">This field is required.</div>
+  </div>
+  <div class="form-group">
+    <label>AcademyWinner</label>
+    <br>
+    <!--<input name="AcademyWinner" #AcademyWinner="ngModel" [(ngModel)]="service.formData.AcademyWinner" class="form-control"
+      required>-->
+    <label>
+      <input type="radio" name="AcademyWinner" #AcademyWinner="ngModel" [(ngModel)]="service.formData.AcademyWinner"
+        [value]="true">
+      True</label>
+    <br>
+    <label>
+      <input type="radio" name="AcademyWinner" #AcademyWinner="ngModel" [(ngModel)]="service.formData.AcademyWinner"
+        [value]="false">
+      False</label>
+    <div class="validation-error" *ngIf="AcademyWinner.invalid && AcademyWinner.touched">This field is required.</div>
+  </div>
+  <!--
+    TODO: Add dropdown / combobox for examples
+  -->
+  <div class="form-group">
+    <button type="submit" [disabled]="form.invalid" class="btn btn-lg btn-block">
+      Submit
+    </button>
+  </div>
+</form>

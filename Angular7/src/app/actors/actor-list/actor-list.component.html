@@ -1,0 +1,18 @@
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Actor</th>
+      <th>Age</th>
+      <th>Academy Winner</th>
+      <th>Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let actor of service.list">
+      <td (click)="populateForm(actor)">{{actor.Name}}</td>
+      <td (click)="populateForm(actor)">{{actor.Age}}</td>
+      <td (click)="populateForm(actor)">{{actor.AcademyWinner}}</td>
+      <td><button (click)="onDelete(actor.Id)" class="btn btn-sm btn-outline-danger">X</button></td>
+    </tr>
+  </tbody>
+</table>
